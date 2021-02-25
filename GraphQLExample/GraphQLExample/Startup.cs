@@ -1,9 +1,8 @@
 using GraphQLExample.Types;
-using HotChocolate;
-using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -11,16 +10,28 @@ namespace GraphQLExample
 {
     public class Startup
     {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddGraphQL(
-                SchemaBuilder.New()
-                    .AddQueryType<QueryType>()
-                    .AddMutationType<Mutation>());
+            services.AddPooledDbContextFactory<ApplicationDbContext>(
+                options => options.UseSqlite("Data Source=cars.db"));
 
-            services.AddDbContext<ExampleContext>(options => options.UseInMemoryDatabase("badkamer-core"));
+            services
+                .AddGraphQLServer()
+                .AddQueryType<Query>()
+                .AddMutationType<Mutation>()
+                .AddType<CarOwnerType>()
+                .AddType<CarType>()
+                .AddProjections()
+                .AddFiltering()
+                .AddSorting();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,8 +42,11 @@ namespace GraphQLExample
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseGraphQL();
-            app.UsePlayground();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGraphQL();
+            });
         }
     }
 }

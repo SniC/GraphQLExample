@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebApplication9.Migrations
+namespace GraphQLExample.Migrations
 {
     public partial class Initial : Migration
     {

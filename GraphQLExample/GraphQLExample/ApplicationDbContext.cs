@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebApplication8.Domain;
+﻿using GraphQLExample.Domain;
+using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication9
+namespace GraphQLExample
 {
     public class ApplicationDbContext : DbContext
     {

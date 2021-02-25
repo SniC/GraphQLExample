@@ -4,9 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApplication9;
 
-namespace WebApplication9.Migrations
+namespace GraphQLExample.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210224221300_Initial")]

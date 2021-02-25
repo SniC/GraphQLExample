@@ -1,32 +1,27 @@
 ﻿using GraphQLExample.Domain;
+using HotChocolate;
+using HotChocolate.Data;
 using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GraphQLExample
 {
     public class Mutation
     {
-        private readonly ExampleContext dbContext;
-
-        public Mutation(ExampleContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
-
-        public async Task<CarOwner> CreateCarOwner(string name)
+        [UseDbContext(typeof(ApplicationDbContext))]
+        public CarOwner AddCarOwner(string name, [ScopedService] ApplicationDbContext dbContext)
         {
             var carOwner = new CarOwner(name);
             dbContext.CarOwners.Add(carOwner);
-            await dbContext.SaveChangesAsync();
+            dbContext.SaveChanges();
             return carOwner;
         }
 
-        public async Task<Car> AddCar(Guid ownerId, string brand, string model)
+        [UseDbContext(typeof(ApplicationDbContext))]
+        public Car AddCarToCollection(Guid carOwnerId, string brand, string model, [ScopedService] ApplicationDbContext dbContext)
         {
-            var carOwner = dbContext.CarOwners.FirstOrDefault(x => x.Id == ownerId);
+            var carOwner = dbContext.CarOwners.Find(carOwnerId);
             var car = carOwner.AddCarToCollection(brand, model);
-            await dbContext.SaveChangesAsync();
+            dbContext.SaveChanges();
             return car;
         }
     }

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQLExample", "GraphQLExample\GraphQLExample.csproj", "{04615AB3-55BD-43B9-B171-4557A084181D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQLExample", "GraphQLExample\GraphQLExample.csproj", "{42C87207-7513-480F-8D4B-AAF78996585B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{04615AB3-55BD-43B9-B171-4557A084181D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04615AB3-55BD-43B9-B171-4557A084181D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04615AB3-55BD-43B9-B171-4557A084181D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04615AB3-55BD-43B9-B171-4557A084181D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C87207-7513-480F-8D4B-AAF78996585B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C87207-7513-480F-8D4B-AAF78996585B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C87207-7513-480F-8D4B-AAF78996585B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C87207-7513-480F-8D4B-AAF78996585B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CDE6D0E1-46CF-45D3-B941-10D15E020859}
+		SolutionGuid = {A7A1E716-9814-4413-8540-3D803C5AF3D1}
 	EndGlobalSection
 EndGlobal

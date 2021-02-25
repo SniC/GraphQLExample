@@ -4,19 +4,25 @@ namespace GraphQLExample.Domain
 {
     public class CarOwner : Entity
     {
-        public CarOwner(string name)
+        private CarOwner()
+        {
+            this.CarCollection = new List<Car>();
+            this.Name = default!;
+        }
+
+        public CarOwner(string name) : this()
         {
             this.Name = name;
-            this.Cars = new List<Car>();
         }
 
         public string Name { get; private set; }
-        public List<Car> Cars { get; private set; }
+
+        public virtual List<Car> CarCollection { get; private set; }
 
         public Car AddCarToCollection(string brand, string model)
         {
             var car = new Car(brand, model);
-            Cars.Add(car);
+            CarCollection.Add(car);
             return car;
         }
     }

@@ -4,6 +4,6 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>GraphQLExample</ActiveDebugProfile>
+    <ActiveDebugProfile>WebApplication9</ActiveDebugProfile>
   </PropertyGroup>
 </Project>
